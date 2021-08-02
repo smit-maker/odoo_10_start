@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- school -->
+    <record id="school_list_view" model="ir.ui.view">
+        <field name="name">school.list.view</field>
+        <field name="model">school.profile</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="From List Changed."/>
+                <field name="email" />
+                <field name="phone" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="school_form_view" model="ir.ui.view">
+        <field name="name">school.form.view</field>
+        <field name="model">school.profile</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name" />
+                        <field name="email" placeholder="abc@gmail.com"/>
+                        <field name="phone" />
+                        <field name="school_rank" />
+                        <field name="address"/>
+                        <field name="open_date"/>
+                        <field name="school_type" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- student -->
+    <record id="student_list_view" model="ir.ui.view">
+        <field name="name">student.list.view</field>
+        <field name="model">student.profile</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="s_name" string="From List Changed."/>
+                <field name="s_email" />
+                <field name="s_phone" />
+<!--                <field name="sub1" />-->
+<!--                <field name="sub2" />-->
+<!--                <field name="sub3" />-->
+                <field name="result" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_form_view" model="ir.ui.view">
+        <field name="name">student.form.view</field>
+        <field name="model">student.profile</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="s_name" />
+                        <field name="s_email" placeholder="abc@gmail.com"/>
+                        <field name="s_phone" />
+                        <field name="join_date" />
+                        <field name="sub1" />
+                        <field name="sub2" />
+                        <field name="sub3" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+<!--    <record id="extend_form_view" model="ir.ui.view">-->
+<!--        <field name="name">School extend form</field>-->
+<!--        <field name="model">student.profile</field>-->
+<!--        <field name="inherit_id" ref="student.student_form_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <field name="name" position="after">-->
+<!--                <field name="school_list"/>-->
+<!--            </field>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!--  School  -->
+    <record id="action_school_profile" model="ir.actions.act_window">
+        <field name="name">School Profile</field>
+        <field name="res_model">school.profile</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--  Student  -->
+    <record id="action_student_profile" model="ir.actions.act_window">
+        <field name="name">Student Profile</field>
+        <field name="res_model">student.profile</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="school_root_menu" name="School"/>
+    <menuitem id="school_sub_menu" parent="school_root_menu"
+              name="School Profile"/>
+    <menuitem id="student_profile_menu" name="Student"
+              action="action_student_profile"
+              parent="school_sub_menu"/>
+    <menuitem id="school_profile_menu" name="School"
+              action="action_school_profile"
+              parent="school_sub_menu"/>
+
+
+</odoo>

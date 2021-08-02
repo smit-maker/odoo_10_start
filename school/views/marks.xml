@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--  marks  -->
+    <record id="marks_list_view" model="ir.ui.view">
+        <field name="name">marks.list.view</field>
+        <field name="model">marks.profile</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="result" />
+                <field name="mark" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="marks_form_view" model="ir.ui.view">
+        <field name="name">marks.form.view</field>
+        <field name="model">marks.profile</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="result" />
+                        <field name="mark" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!--  marks  -->
+    <record id="action_marks_student" model="ir.actions.act_window">
+        <field name="name">Marks</field>
+        <field name="res_model">marks.profile</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="marks_student_menu" name="Marks"
+              action="action_marks_student"
+              parent="school_sub_menu"/>
+</odoo>
