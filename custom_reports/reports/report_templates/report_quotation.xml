@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="external_layout_quotation">
+
+    <t t-if="not o and doc">
+            <t t-set="o" t-value="doc"/>
+    </t>
+    <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"></t>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"></t>
+        </t>
+    
+    <t t-call="custom_reports.external_layout_header_quotation" />
+      <t t-raw="0"/>
+</template>
+
+
+<template id="external_layout_header_quotation">
+    <div class="header">
+        <div class="row">
+        <div class="col-6">
+            <span t-field="o.company_id" />
+            <br/>
+            <span t-field="o.company_id.street" />
+            <br/>
+            <span t-field="o.company_id.street2" />
+            <br/>
+            <span t-field="o.company_id.city" />
+            <br/>
+            <span t-field="o.company_id.country_id" />
+            <br/>
+            <span t-field="o.company_id.vat" />
+            <br/>
+        </div>
+        <div class="col-6 text-right mb4">
+            <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" style="max-height: 90px;max-height: 150px;max" />
+        </div>
+        </div>
+    </div>
+</template>
+    <template id="custom_report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-call='web.external_layout']" position="replace">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="custom_reports.external_layout_quotation">
+                <t t-set="data_report_margin_top" t-value="0"/>
+                <t t-set="data_report_header_spacing" t-value="0"/>
+                <t t-set="serial_no" t-value="1"/>
+                <t t-set="data_report_dpi" t-value="150"/>
+            <div class="page">
+            <div class="oe_structure"/>
+            <table style="border-collapse: collapse; width: 100%; height: 515px;" border="1">
+                <tbody>
+                <tr style="height: 18px;">
+                <td style="width: 50%; height: 18px;" colspan="5"><strong>Quotation No</strong></td>
+                <td style="width: 50%; height: 18px;" colspan="6"><strong>LOGO</strong></td>
+                </tr>
+                <tr style="height: 18px;">
+                <td style="width: 50%; height: 18px;" colspan="5"><strong>Company Address:</strong></td>
+                <td style="width: 50%; height: 18px;" colspan="6"><strong>&#160;</strong></td>
+                </tr>
+                <tr style="height: 118px;">
+                <td style="width: 50%; height: 118px;" colspan="5"><strong>Date :<br /></strong><strong><br /></strong><strong><br /></strong><strong><br /></strong><strong><br /></strong></td>
+                <td style="width: 50%; height: 118px;" colspan="6"><strong><br /></strong><strong>Customer Address<br /></strong><strong><br /></strong><strong><br /></strong>
+                <p><strong>&#160;</strong></p>
+                </td>
+                </tr>
+                <tr style="height: 78px;">
+                <td style="width: 10%; height: 78px;"><strong>Sr.</strong></td>
+                <td style="width: 10%; height: 78px;"><strong>Product Name</strong></td>
+                <td style="width: 10%; height: 78px;"><strong>HSN/SAC&#160;</strong></td>
+                <td style="width: 10%; height: 78px;"><strong>Qty</strong></td>
+                <td style="width: 10%; height: 78px;"><strong>Rate</strong></td>
+                <td style="width: 10%; height: 78px;"><strong>Discount</strong></td>
+                <td style="width: 10%; height: 78px;"><strong>Taxable</strong></td>
+                <td style="width: 10%; height: 78px;"><strong>GST</strong></td>
+                <td style="width: 15.1123%; height: 78px;" colspan="2"><strong>Tax Amount</strong></td>
+                <td style="width: 4.88764%; height: 78px;">
+                <p><strong>Net</strong></p>
+                <p><strong>Amount</strong></p>
+                </td>
+                </tr>
+                <tr style="height: 46px;">
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">Code</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">Amount</td>
+                <td style="width: 10%; height: 46px;">%</td>
+                <td style="width: 10.2247%; height: 46px;">Integrated</td>
+                <td style="width: 4.88764%; height: 46px;">&#160;</td>
+                <td style="width: 4.88764%; height: 46px;">
+                <p>&#160;</p>
+                </td>
+                </tr>
+                <tr style="height: 46px;">
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10.2247%; height: 46px;">&#160;</td>
+                <td style="width: 4.88764%; height: 46px;">&#160;</td>
+                <td style="width: 4.88764%; height: 46px;">
+                <p>&#160;</p>
+                </td>
+                </tr>
+                <tr style="height: 46px;">
+                <td style="width: 50%; height: 46px;" colspan="5">GSTIN No.:&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <strong>Total</strong></td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10%; height: 46px;">&#160;</td>
+                <td style="width: 10.2247%; height: 46px;">&#160;</td>
+                <td style="width: 4.88764%; height: 46px;">&#160;</td>
+                <td style="width: 4.88764%; height: 46px;">
+                <p>&#160;</p>
+                </td>
+                </tr>
+                <tr style="height: 0px;">
+                <td style="width: 70%; height: 145px;" colspan="7" rowspan="4">
+                <p>Total GST :</p>
+                <p>&#160;</p>
+                <p>&#160;</p>
+                <p>Bill Amount:</p>
+                </td>
+                <td style="width: 30%; height: 81px;" colspan="4" rowspan="2">
+                <p>&#160;</p>
+                <p>&#160;</p>
+                </td>
+                </tr>
+                <tr style="height: 64px;">
+                <td style="width: 30%; height: 64px;" colspan="4">
+                <p>Grand Total&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;-&#160; &#160; &#160; &#160; &#160; 5464654</p>
+                </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="oe_structure"/>
+        </div>
+            </t>
+        </t>
+        </xpath>
+    </template>
+</odoo>

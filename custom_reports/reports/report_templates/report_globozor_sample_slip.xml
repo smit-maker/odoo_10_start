@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+            id="action_report_sample_sale_report"
+            string="Globozor Sample Slip"
+            model="sale.order"
+            report_type="qweb-pdf"
+            file="custom_reports.print_sample_sale"
+            name="custom_reports.print_sample_sale"
+            print_report_name="'Globozor Report - %s' % (object.slip_no)"
+        />
+    <template id="print_sample_sale">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="o" t-as="sample">
+                	<table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td colspan="2" rowspan="1">Sample SLip No</td>
+								<td colspan="2" rowspan="1">654654</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td colspan="2" rowspan="1">DAte</td>
+								<td colspan="2" rowspan="1">14/04/21</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td colspan="2" rowspan="1">Name of Address of the exporter</td>
+								<td colspan="2" rowspan="1">Globozoe Iternatio</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td colspan="2" rowspan="1">&nbsp;</td>
+								<td colspan="2" rowspan="1">Ashapura road</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td colspan="2" rowspan="1">&nbsp;</td>
+								<td colspan="2" rowspan="1">Bh. Karan</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td colspan="2" rowspan="1">&nbsp;</td>
+								<td colspan="2" rowspan="1">RAJKOT-36001 Gujrat India</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td colspan="2" rowspan="1">APEDA RCMC No. of the exporter and it&#39;s valiadity</td>
+								<td colspan="2" rowspan="1">189884 Validity Till 10/04/2023</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td colspan="2" rowspan="1">Name of address of ppp processing Unit</td>
+								<td colspan="2" rowspan="1">SAURASHTRA METAL SUPPLYING COMPANY</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td colspan="2" rowspan="1">RATNAM WARHOUSE</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td colspan="2" rowspan="1">BEHIND STHANUMn rtemple,</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td colspan="2" rowspan="1">beside ruda transportanager</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td colspan="2" rowspan="1">rajkot 366003</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td colspan="2" rowspan="1">&nbsp;</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td colspan="2">rePREsentation name:</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td colspan="2">Contacct No:</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td colspan="4" rowspan="1">Consignment Details</td>
+							</tr>
+						</tbody>
+					</table>
+				</t>
+            </div>
+        </t>
+    </template>
+</odoo>
