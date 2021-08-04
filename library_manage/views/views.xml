@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- student -->
+        <record id="student_list_view" model="ir.ui.view">
+            <field name="name">student.list.view</field>
+            <field name="model">student.data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="s_name"/>
+                    <field name="s_email"/>
+                    <field name="s_phone"/>
+                    <field name="s_gender"/>
+                    <field name="address"/>
+                    <field name="join_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="student_form_view" model="ir.ui.view">
+            <field name="name">student.form.view</field>
+            <field name="model">student.data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header> ... content of the status bar  ... </header>-->
+                    <sheet>
+                        <group col="4">
+                            <field name="s_name"/>
+                            <field name="s_email"/>
+                            <field name="s_phone"/>
+                            <field name="s_gender"/>
+                            <field name="address"/>
+                            <field name="join_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Books -->
+        <record id="book_list_view" model="ir.ui.view">
+            <field name="name">book.list.view</field>
+            <field name="model">book.data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="b_name"/>
+                    <field name="b_info"/>
+                    <field name="author_name"/>
+                    <field name="no_of_book"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="book_form_view" model="ir.ui.view">
+            <field name="name">book.form.view</field>
+            <field name="model">book.data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header> ... content of the status bar  ... </header>-->
+                    <sheet>
+                        <group col="4">
+                            <field name="b_name"/>
+                            <field name="b_info"/>
+                            <field name="author_name"/>
+                            <field name="no_of_book"/>
+                        </group>
+                    </sheet>
+                    <!--                    <div class="oe_chatter"> ... content of the bottom part ... </div>-->
+                </form>
+            </field>
+        </record>
+
+        <!-- Issue -->
+        <record id="issue_list_view" model="ir.ui.view">
+            <field name="name">issue.list.view</field>
+            <field name="model">issue.books</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="s_id"/>
+                    <field name="b_id"/>
+                    <field name="issue_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="issue_form_view" model="ir.ui.view">
+            <field name="name">issue.form.view</field>
+            <field name="model">issue.books</field>
+            <field name="arch" type="xml">
+                <!--                <header>-->
+                <!--                		<button name="action_done" string="Done" type="object" class="btn-primary" states="draft"/>-->
+                <!--						<button name="action_confirm" string="Confirm" type="object" class="btn-primary" states="confirm"/>-->
+                <!--						<button name="cancel" string="Cancel" type="object" class="btn-primary"/>-->
+                <!--						<field name="state" widget="statusbar"  statusbar_visible="draft,confirm,issue"/>-->
+                <!--                </header>-->
+                <form>
+                    <sheet>
+                        <group col="4">
+                            <field name="s_id"/>
+                            <field name="b_id" widget="many2many_tags"/>
+                            <field name="issue_date"/>
+                        </group>
+                        <!--          /home/sunray/odoo-13.0 (1)/odoo-13.0              <notebook>-->
+                        <!--                            <page string="History">-->
+                        <!--                            </page>-->
+                        <!--                        </notebook>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Student -->
+        <record id="action_student_data" model="ir.actions.act_window">
+            <field name="name">Student Data</field>
+            <field name="res_model">student.data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Books -->
+        <record id="action_book_data" model="ir.actions.act_window">
+            <field name="name">Book Data</field>
+            <field name="res_model">book.data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- issue -->
+        <record id="action_issue_book" model="ir.actions.act_window">
+            <field name="name">Issue Book</field>
+            <field name="res_model">issue.books</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="student_root_menu" name="Library"/>
+        <menuitem id="student_sub_menu" parent="student_root_menu"
+                  name="Student Profile"/>
+        <menuitem id="student_data_menu" name="Student"
+                  action="action_student_data"
+                  parent="student_sub_menu"/>
+        <menuitem id="book_data_menu" name="Book"
+                  action="action_book_data"
+                  parent="student_sub_menu"/>
+        <menuitem id="isuue_book_menu" name="Issue"
+                  action="action_issue_book"
+                  parent="student_sub_menu"/>
+    </data>
+</odoo>
