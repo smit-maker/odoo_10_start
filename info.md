@@ -14,5 +14,8 @@ https://www.odoo.com/documentation/10.0/reference/views.html#forms
 <field name="state" widget="statusbar"
     statusbar_visible="draft,sent,progress,invoiced,done" />
    
-        All field info ...
- ===>https://www.cybrosys.com/blog/fields-and-parameters-in-odoo
+    ==== >>> All field info ...  <<< =====
+ https://www.cybrosys.com/blog/fields-and-parameters-in-odoo
+ 
+    ==== >>> Kanban documentation <<< =====
+ https://www.odoo.com/documentation/14.0/developer/reference/javascript/qweb.html#reference-qweb
