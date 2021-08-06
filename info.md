@@ -19,3 +19,6 @@ https://www.odoo.com/documentation/10.0/reference/views.html#forms
  
     ==== >>> Kanban documentation <<< =====
  https://www.odoo.com/documentation/14.0/developer/reference/javascript/qweb.html#reference-qweb
+
+    ==== >>> SQL Commands <<< ===== 
+ https://www.codecademy.com/articles/sql-commands
