@@ -22,3 +22,8 @@ https://www.odoo.com/documentation/10.0/reference/views.html#forms
 
     ==== >>> SQL Commands <<< ===== 
  https://www.codecademy.com/articles/sql-commands
+ 
+   
+    ==== >>> ER Diagram <<< ===== 
+ 
+ https://app.quickdatabasediagrams.com/#/
