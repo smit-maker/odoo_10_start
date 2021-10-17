@@ -6,7 +6,7 @@
             <field name="name">student.list.view</field>
             <field name="model">student.data</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree string="Student List">
                     <field name="s_name"/>
                     <field name="s_email"/>
                     <field name="s_phone"/>
